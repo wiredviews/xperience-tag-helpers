@@ -40,7 +40,7 @@ public class ImageTagHelper : TagHelper
     /// <remarks>
     /// See: https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#how_do_you_create_responsive_images
     /// </remarks>
-    [HtmlAttributeName(TagHelperSrcSetAttribute)]
+    [HtmlAttributeName(TagHelperSizesAttribute)]
     public IEnumerable<(int maxWidthOrHeight, string xDescriptor)> Sizes { get; set; } = Enumerable.Empty<(int, string)>();
 
     /// <summary>
@@ -49,8 +49,8 @@ public class ImageTagHelper : TagHelper
     /// <remarks>
     /// See: https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#how_do_you_create_responsive_images
     /// </remarks>
-    [HtmlAttributeName(TagHelperSizesAttribute)]
-    public IEnumerable<(double factor, int maxWidthOrHeight)> SrcSet { get; set; } = Enumerable.Empty<(double, int)>();
+    [HtmlAttributeName(TagHelperSrcSetAttribute)]
+    public IEnumerable<(int maxWidthOrHeight, double factor)> SrcSet { get; set; } = Enumerable.Empty<(int, double)>();
 
     public string Alt { get; set; } = "";
     public string Title { get; set; } = "";
@@ -147,13 +147,13 @@ public class ImageTagHelper : TagHelper
 
         if (SrcSet.Any())
         {
-            foreach (var (factor, maxWidthOrHeight) in SrcSet)
+            foreach (var (maxWidthOrHeight, factor) in SrcSet)
             {
                 var url = new FileUrl(image.RelativePath, true).WithSizeConstraint(SizeConstraint.MaxWidthOrHeight(maxWidthOrHeight));
 
-                srcSetSb
+                _ = srcSetSb
                     .Append($"{url.RelativePath} {factor}x")
-                    .Append(",");
+                    .Append(',');
             }
         }
         else if (Sizes.Any())
@@ -162,13 +162,13 @@ public class ImageTagHelper : TagHelper
             {
                 var url = new FileUrl(image.RelativePath, true).WithSizeConstraint(SizeConstraint.MaxWidthOrHeight(maxWidthOrHeight));
 
-                srcSetSb
+                _ = srcSetSb
                     .Append($"{url.RelativePath} {maxWidthOrHeight}w")
-                    .Append(",");
+                    .Append(',');
 
-                sizesSb
+                _ = sizesSb
                     .Append($"(max-width: {xDescriptor}) {maxWidthOrHeight}px")
-                    .Append(",");
+                    .Append(',');
             }
         }
 
@@ -191,7 +191,7 @@ public class ImageTagHelper : TagHelper
         }
     }
 
-    private void ClearTagHelperAttributes(TagHelperOutput output)
+    private static void ClearTagHelperAttributes(TagHelperOutput output)
     {
         _ = output.Attributes.RemoveAll(TagHelperAttribute);
         _ = output.Attributes.RemoveAll(TagHelperConstraintAttribute);
