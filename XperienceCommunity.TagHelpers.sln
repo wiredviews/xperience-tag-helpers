@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{972804C5-F640-4846-B8C6-FA38A4BD3872}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XperienceCommunity.TagHelpers", "src\XperienceCommunity.TagHelpers\XperienceCommunity.TagHelpers.csproj", "{E742A29C-A184-4EA9-8A67-211911449B5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F02FCC72-20D6-4F2C-8751-020A1A53A38F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XperienceCommunity.TagHelpers.Tests", "tests\XperienceCommunity.TagHelpers.Tests\XperienceCommunity.TagHelpers.Tests.csproj", "{E1F4486E-3226-446C-B6C7-EE301720A1E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E742A29C-A184-4EA9-8A67-211911449B5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E742A29C-A184-4EA9-8A67-211911449B5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E742A29C-A184-4EA9-8A67-211911449B5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E742A29C-A184-4EA9-8A67-211911449B5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1F4486E-3226-446C-B6C7-EE301720A1E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1F4486E-3226-446C-B6C7-EE301720A1E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1F4486E-3226-446C-B6C7-EE301720A1E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1F4486E-3226-446C-B6C7-EE301720A1E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E742A29C-A184-4EA9-8A67-211911449B5B} = {972804C5-F640-4846-B8C6-FA38A4BD3872}
+		{E1F4486E-3226-446C-B6C7-EE301720A1E9} = {F02FCC72-20D6-4F2C-8751-020A1A53A38F}
+	EndGlobalSection
+EndGlobal
